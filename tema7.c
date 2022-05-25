@@ -4,6 +4,7 @@
 float calcular(float num1, float num2, char operacion);
 int calcularDigitos(int numC);
 int validarCuatroDigitos(int numC);
+void calcularDiferencia();
 int main(){
     float n1, n2;
     int opcion;
@@ -21,7 +22,8 @@ int main(){
     printf("4. Division\n");
     printf("5.Calcular digitos\n");
     printf("6.Validar 4 dígitos\n");
-    printf("7. Salir\n");
+    printf("7.Diferencia entre dos fechas\n");
+    printf("8. Salir\n");
     printf("Ingrese una opcion: ");
     scanf("%d", &opcion);
 
@@ -55,9 +57,11 @@ int main(){
             printf("El número no es válido\n");
             break;
         }
-        
+    case 7:
+        calcularDiferencia();
+        break;
     }
-    }while (opcion !=7);
+    }while (opcion !=8);
     printf("saliendo");
     return 0;
     
@@ -106,4 +110,26 @@ int validarCuatroDigitos(int numC){
     }else{
         return 0;
     }
+}
+
+void calcularDiferencia(){
+    int dia1, mes1, anio1, dia2, mes2, anio2;
+    int valor1, valor2;
+    int resultado;
+    printf("Introduce el día de la primera fecha");
+    scanf("%d", &dia1);
+    printf("Introduce el mes de la primera fecha");
+    scanf("%d", &mes1);
+    printf("Introduce el año de la primera fecha");
+    scanf("%d", &anio1);
+    valor1 = anio1 * 365 + mes1 * 30 + dia1;
+    printf("Introduce el día de la segunda fecha");
+    scanf("%d", &dia2);
+    printf("Introduce el mes de la segunda fecha");
+    scanf("%d", &mes2);
+    printf("Introduce el año de la segunda fecha");
+    scanf("%d", &anio2);
+    valor2 = anio2 * 365 + mes2 * 30 + dia2;
+    resultado = valor2 - valor1;
+    printf("La diferencia es de %d días\n", resultado);
 }
