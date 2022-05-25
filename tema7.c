@@ -46,8 +46,16 @@ int main(){
     case 6:
         printf("Introduce un numero: ");
         scanf("%d", &numC);
-        validarCuatroDigitos(numC);
-        break;
+        int a = validarCuatroDigitos(numC);
+        if (a==1) {
+            printf("El numero es valido\n");
+            return 0;
+        
+        }else{
+            printf("El número no es válido\n");
+            break;
+        }
+        
     }
     }while (opcion !=7);
     printf("saliendo");
@@ -94,9 +102,8 @@ int validarCuatroDigitos(int numC){
         contador++;
     }
     if(contador == 4){
-        printf("El numero es valido\n");
-        
+        return 1;
     }else{
-        printf("El numero no es valido\n");
+        return 0;
     }
 }
