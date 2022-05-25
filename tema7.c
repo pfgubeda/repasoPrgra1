@@ -18,23 +18,24 @@ int main(){
     printf("3. Multiplicacion\n");
     printf("4. Division\n");
     printf("5. Salir\n");
-    
     printf("Ingrese una opcion: ");
     scanf("%d", &opcion);
+
     switch (opcion) {
     case 1:
-        calcular(n1, n2, "s");
+        calcular(n1, n2, 's');
         break;
     case 2:
-        calcular(n1, n2, "r");
+        calcular(n1, n2, 'r');
         break;
     case 3:
-        calcular(n1, n2, "m");
+        calcular(n1, n2, 'm');
         break;
     case 4:
-        calcular(n1, n2, "d");
+        calcular(n1, n2, 'd');
         break;
-    }}while (opcion !=5);
+    }
+    }while (opcion !=5);
     printf("saliendo");
     return 0;
     
@@ -54,9 +55,10 @@ float calcular(float num1, float num2, char operacion){
         float multiplicacion;
         multiplicacion = num1 * num2;
         printf("La multiplicacion es: %.2f\n", multiplicacion);
-    }else if (operacion == "d"){
+    }else if (operacion == 'd'){
         float division;
         division = num1 / num2;
         printf("La division es: %.2f\n", division);
-    }    
+    } 
+    return 1; 
 }
