@@ -2,10 +2,12 @@
 #include <stdlib.h>
 
 float calcular(float num1, float num2, char operacion);
-
+int calcularDigitos(int numC);
+int validarCuatroDigitos(int numC);
 int main(){
     float n1, n2;
     int opcion;
+    int numC;
     printf("Introduce un numero:");
     scanf("%f", &n1);
     printf("Introduce otro numero:");
@@ -17,7 +19,9 @@ int main(){
     printf("2. Resta\n");
     printf("3. Multiplicacion\n");
     printf("4. Division\n");
-    printf("5. Salir\n");
+    printf("5.Calcular digitos\n");
+    printf("6.Validar 4 dígitos\n");
+    printf("7. Salir\n");
     printf("Ingrese una opcion: ");
     scanf("%d", &opcion);
 
@@ -34,8 +38,18 @@ int main(){
     case 4:
         calcular(n1, n2, 'd');
         break;
+    case 5:
+        printf("Introduce un numero: ");
+        scanf("%d", &numC);
+        calcularDigitos(numC);
+        break;
+    case 6:
+        printf("Introduce un numero: ");
+        scanf("%d", &numC);
+        validarCuatroDigitos(numC);
+        break;
     }
-    }while (opcion !=5);
+    }while (opcion !=7);
     printf("saliendo");
     return 0;
     
@@ -61,4 +75,28 @@ float calcular(float num1, float num2, char operacion){
         printf("La division es: %.2f\n", division);
     } 
     return 1; 
+}
+
+int calcularDigitos(int numC){
+    int contador = 0;
+    while(numC > 0){
+        numC = numC / 10;
+        contador++;
+    }
+    printf("El numero tiene %d digitos\n", contador);
+    return contador;
+}
+
+int validarCuatroDigitos(int numC){
+    int contador = 0;
+    while(numC > 0){
+        numC = numC / 10;
+        contador++;
+    }
+    if(contador == 4){
+        printf("El numero es valido\n");
+        
+    }else{
+        printf("El numero no es valido\n");
+    }
 }
